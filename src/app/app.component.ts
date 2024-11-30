@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Post } from './posts/post-modal.resources';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'messagerApp';
+  storedPosts: Post[] = []
+
+  onPostAdded(post: Post) {
+    this.storedPosts.push(post);
+    console.log(this.storedPosts)
+  }
 }
