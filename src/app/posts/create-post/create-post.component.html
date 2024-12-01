@@ -9,11 +9,15 @@
 <button (click)="onAddPost(postInput)">Save Post</button>
 <p>{{ newPost }}</p> -->
 <mat-card>
-    <mat-form-field>
-        <input matInput rows="6" placeholder="Title" [(ngModel)]="enteredTitel">
-    </mat-form-field>
-    <mat-form-field>
-        <textarea matInput rows="6" placeholder="Content" [(ngModel)]="enteredContent"></textarea>
-    </mat-form-field>
-    <button mat-raised-button color="primary" (click)="onAddPost()">Save Post</button>
+    <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+        <mat-form-field>
+            <input matInput rows="6" placeholder="Title" ngModel required name="postTitle">
+            <mat-error *ngIf="postForm.controls['postTitle'].invalid"> required </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea matInput rows="6" placeholder="Content" ngModel required name="postContent"></textarea>
+            <mat-error *ngIf="postForm.controls['postContent'].invalid"> required </mat-error>
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary">Save Post</button>
+    </form>
 </mat-card>

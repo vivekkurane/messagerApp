@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Post } from './posts/post-modal.resources';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +6,5 @@ import { Post } from './posts/post-modal.resources';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  storedPosts: Post[] = []
 
-  onPostAdded(post: Post) {
-    this.storedPosts.push(post);
-    console.log(this.storedPosts)
-  }
 }
